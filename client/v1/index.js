@@ -29,30 +29,12 @@ console.log(MY_FAVORITE_DEALERS[0]);*/
 // 0. I have 2 favorite lego sets shopping communities stored in MY_FAVORITE_DEALERS variable
 // 1. Create a new variable and assign it the link of the lego set with the highest reduction I can find on these 2 websites
 // 2. Log the variable
-// 🎯 TODO 1: The highest reduction
 
-/*const favoriteDeals = deals.filter(function(deal) {
-  return MY_FAVORITE_DEALERS.includes(deal.site);
-});
+const bestReductionLink = deals
+  .filter(d => MY_FAVORITE_DEALERS.includes(d.link)) 
+  .sort((a, b) => b.discount - a.discount)[0]?.link; 
+console.log('Le lien :', bestReductionLink); 
 
-const sortedFavorites = favoriteDeals.sort(function(a, b) {
-  return b.discount - a.discount;
-});
-
-const bestReductionLink = sortedFavorites[0].link;
-console.log('Le lien du set avec la meilleure réduction chez mes favoris :', bestReductionLink);*/
-
-const favoriteDeals = deals.filter(function(deal) {
-  return MY_FAVORITE_DEALERS.includes(deal.link);
-});
-const sortedFavorites = favoriteDeals.sort(function(a, b) {
-  return b.discount - a.price; 
-});
-let bestReductionLink = "Aucun deal trouvé pour ces sites"; 
-if (sortedFavorites.length > 0) {
-  bestReductionLink = sortedFavorites[0].link;
-}
-console.log('Résultat TODO 1 :', bestReductionLink);
 /**
  * 🧱
  * Easy 😁?
@@ -95,15 +77,18 @@ console.log("Deals by price", sort_deals);
 // 3. Log the variable
 
 //const TriDate = (list) => { return ...}
-function TriDate(list) {
-    return [...list].sort((a,b) => {
-        const date1 = new Date(a.date);
-        const date2 = new Date(b.date);
-        return date2 - date1;
-    });
-};
-const dealsByDate = TriDate(deals)
-console.log("Deals by date", dealsByDate)
+function trierDatesMixtes(list) {
+  const copie = [...list];
+
+  return copie.sort(function(a, b) {
+    const tempsA = new Date(a.published).getTime();
+    const tempsB = new Date(b.published).getTime();
+    return tempsB - tempsA;
+  });
+}
+
+const dealsByDate = trierDatesMixtes(deals);
+console.log('Deals par date', dealsByDate);
 
 
 // 🎯 TODO 6: Filter a specific percentage discount range
