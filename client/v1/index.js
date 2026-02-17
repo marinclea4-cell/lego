@@ -29,13 +29,15 @@ console.log(MY_FAVORITE_DEALERS[0]);*/
 // 0. I have 2 favorite lego sets shopping communities stored in MY_FAVORITE_DEALERS variable
 // 1. Create a new variable and assign it the link of the lego set with the highest reduction I can find on these 2 websites
 // 2. Log the variable
-// 🎯 TODO 1: The highest reduction
+
 
 HEAD
+
 const bestReductionLink = deals
   .filter(d => MY_FAVORITE_DEALERS.includes(d.link)) 
   .sort((a, b) => b.discount - a.discount)[0]?.link; 
 console.log('Le lien :', bestReductionLink); 
+
 
 
 /*const favoriteDeals = deals.filter(function(deal) {
@@ -60,6 +62,7 @@ if (sortedFavorites.length > 0) {
   bestReductionLink = sortedFavorites[0].link;
 }
 console.log('Résultat TODO 1 :', bestReductionLink);
+
 
 /**
  * 🧱
@@ -103,7 +106,7 @@ console.log("Deals by price", sort_deals);
 // 3. Log the variable
 
 //const TriDate = (list) => { return ...}
- HEAD
+
 function trierDatesMixtes(list) {
   const copie = [...list];
 
@@ -114,6 +117,7 @@ function trierDatesMixtes(list) {
   });
 }
 
+HEAD
 
 console.log('Deals par date', dealsByDate);
 
@@ -126,6 +130,9 @@ function TriDate(list) {
 };
 const dealsByDate = TriDate(deals)
 console.log("Deals by date", dealsByDate)
+
+const dealsByDat = trierDatesMixtes(deals);
+console.log('Deals par date', dealsByDat);
 
 
 // 🎯 TODO 6: Filter a specific percentage discount range
