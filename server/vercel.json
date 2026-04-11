@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "../deals.json"
+    }
+  },
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/api/index" }
+  ]
+}
