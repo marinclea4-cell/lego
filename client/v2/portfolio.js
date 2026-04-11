@@ -288,7 +288,7 @@ filterFavorites.addEventListener('click', () => {
   } else {
     renderDeals(favorites);
   }
-});
+}); 
 
   // Feature 10 - Lifetime Value
   /*
